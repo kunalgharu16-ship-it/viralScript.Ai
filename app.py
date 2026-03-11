@@ -1,34 +1,43 @@
 import streamlit as st
 
-# 1. Page Configuration (Browser Tab Name)
-st.set_page_config(page_title="ViralScript AI", page_icon="🚀")
+# 1. Page Configuration
+st.set_page_config(page_title="ViralScript Global AI", page_icon="🌐")
 
-# 2. Hide Streamlit Footer (Branding hatao)
-hide_style = """
+# 2. Styling for Professional Look
+st.markdown("""
     <style>
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     header {visibility: hidden;}
+    .main { background-color: #fafafa; }
     </style>
-    """
-st.markdown(hide_style, unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
 
-# 3. Main Interface
-st.markdown("<h1 style='text-align: center;'>🚀 ViralScript AI</h1>", unsafe_allow_html=True)
-st.write("Professional YouTube scripts and SEO in one click.")
+# 3. Sidebar - Global Settings
+st.sidebar.title("🌍 Global Settings")
+# Yahan humne saari major languages ka support de diya hai
+lang_map = {
+    "English": "en", "Hindi": "hi", "Punjabi": "pa", "Spanish": "es", 
+    "French": "fr", "Arabic": "ar", "German": "de", "Japanese": "ja", 
+    "Russian": "ru", "Portuguese": "pt", "Bengali": "bn"
+}
+selected_lang = st.sidebar.selectbox("Select Output Language", list(lang_map.keys()))
 
-# User Input
-topic = st.text_input("Video Topic:", placeholder="e.g. 5 Ways to earn online")
-lang = st.selectbox("Language:", ["English", "Hindi", "Punjabi"])
+# 4. Main UI
+st.markdown("<h1 style='text-align: center;'>🌐 ViralScript Global AI</h1>", unsafe_allow_html=True)
+st.write(f"Currently creating content in: **{selected_lang}**")
 
-if st.button("Generate Content"):
+topic = st.text_input("Enter Video Topic:", placeholder="e.g. Best places to visit in 2026")
+
+if st.button("Generate Viral Script ✨"):
     if topic:
-        st.info(f"Generating strategy for: {topic}...")
-        # Baad mein hum yahan AI ka dimaag jodd denge
+        st.success(f"Processing '{topic}' for our global audience...")
+        st.info(f"Target Language: {selected_lang} ({lang_map[selected_lang]})")
+        # Next step: AI Integration will use this lang_map code
     else:
-        st.error("Please enter a topic.")
+        st.error("Please enter a topic first.")
 
-# Hidden Settings (Privacy safe)
-with st.sidebar.expander("System Info"):
-    st.write("Version 1.0 (Stable)")
-    st.write("Server: Global Cloud")
+# 5. Professional Footer (Hidden Settings)
+with st.expander("System Logs"):
+    st.caption("Engine: Multilingual Neural Network")
+    st.caption("Region: Global")
