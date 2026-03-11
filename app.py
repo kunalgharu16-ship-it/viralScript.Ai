@@ -3,7 +3,7 @@ import google.generativeai as genai
 
 # 1. API KEY SETUP
 # Yahan apni copy ki hui key paste karna ' ' ke beech mein
-GOOGLE_API_KEY = "AIzaSyAKuSGCxjWJj4tRiSPNqIH5qi3MRoMjpQ8"
+GOOGLE_API_KEY = "AIzaSyCCfn6tBRCJtcKbUYe5LgYgwRFs-aunuxw"
 genai.configure(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel('gemini-pro')
 
